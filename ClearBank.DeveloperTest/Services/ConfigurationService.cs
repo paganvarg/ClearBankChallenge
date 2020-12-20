@@ -9,6 +9,7 @@ namespace ClearBank.DeveloperTest.Services
     {
         public string GetDataStoreType()
         {
+            // This could be replaced with injecting IConfiguration object in the constructor
             return ConfigurationManager.AppSettings["DataStoreType"];
         }
     }

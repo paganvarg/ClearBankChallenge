@@ -13,6 +13,7 @@ namespace ClearBank.DeveloperTest.Data.Repositories
 
         public Repository(ClearBankContext context)
         {
+            // I've assumed that the context is disposed by IoC container, hence no explicit call to dispose it in my code
             _context = context;
         }
 

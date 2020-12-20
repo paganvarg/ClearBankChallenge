@@ -16,7 +16,14 @@ namespace ClearBank.DeveloperTest.Data
 
         public IAccountDataStore GetAccountDataStore(string dataStoreType)
         {
-            return _accountDataStores.First(s => s.IsApplicable(dataStoreType));
+            var accountStore = _accountDataStores.FirstOrDefault(s => s.IsApplicable(dataStoreType));
+
+            if (accountStore == null)
+            {
+                throw new ArgumentException($"No {nameof(IAccountDataStore)} found for {dataStoreType} type.");
+            }
+
+            return accountStore;
         }
     }
 }

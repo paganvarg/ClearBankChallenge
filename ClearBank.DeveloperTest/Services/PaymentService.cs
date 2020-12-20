@@ -21,6 +21,7 @@ namespace ClearBank.DeveloperTest.Services
 
         public MakePaymentResult MakePayment(MakePaymentRequest request)
         {
+            // I could probably convert it into more pipeline-like pattern, but the amount of code in this function is small enough for it to be readable.
             var dataStoreType = _configurationService.GetDataStoreType();
 
             var accountDataStore = _accountDataStoreFactory.GetAccountDataStore(dataStoreType);
